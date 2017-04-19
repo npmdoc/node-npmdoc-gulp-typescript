@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-typescript.gulp-typescript">
+            function <span class="apidocSignatureSpan"></span>gulp-typescript
+            <span class="apidocSignatureSpan">(param, theReporter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.gulp-typescript.createProject">
             function <span class="apidocSignatureSpan">gulp-typescript.</span>createProject
             <span class="apidocSignatureSpan">(fileNameOrSettings, settings)</span>
@@ -346,6 +355,40 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.gulp-typescript" id="apidoc.module.gulp-typescript">module gulp-typescript</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-typescript.gulp-typescript" id="apidoc.element.gulp-typescript.gulp-typescript">
+        function <span class="apidocSignatureSpan"></span>gulp-typescript
+        <span class="apidocSignatureSpan">(param, theReporter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function compile(param, theReporter) {
+    if (arguments.length &gt;= 3) {
+        utils.deprecate("Reporter are now passed as the second argument", "remove the second argument", "Filters have been removed
+ as of gulp-typescript 3.0.\nThe reporter is now passed as the second argument instead of the third argument.");
+    }
+    var proj;
+    if (typeof param === "function") {
+        proj = param;
+        if (arguments.length &gt;= 2) {
+            utils.deprecate("ts(tsProject, ...) has been deprecated", "use .pipe(tsProject(reporter)) instead", "As of gulp-typescript
+ 3.0, .pipe(ts(tsProject, ...)) should be written as .pipe(tsProject(reporter)).");
+        }
+        else {
+            utils.deprecate("ts(tsProject) has been deprecated", "use .pipe(tsProject(reporter)) instead", "As of gulp-typescript
+ 3.0, .pipe(ts(tsProject)) should be written as .pipe(tsProject()).");
+        }
+    }
+    else {
+        proj = compile.createProject(param || {});
+    }
+    return proj(theReporter);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
